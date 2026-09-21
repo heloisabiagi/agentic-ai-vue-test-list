@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="onSubmit" class="form">
     <div class="form-field">
-      <label for="username">Name</label>
+      <label for="name">Name</label>
       <input id="name" v-model="name" placeholder="Name" required />
     </div>
     <div class="form-field">
