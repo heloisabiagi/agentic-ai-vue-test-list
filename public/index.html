@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Users (Express + Vue + SQLite)</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="app" class="container">
+    <h1>Users</h1>
+
+    <user-form :user-to-edit="editingUser" @submit="handleSubmit" @cancel="cancelEdit"></user-form>
+
+    <user-list :users="users" @edit="editUser" @delete="removeUser"></user-list>
+  </div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

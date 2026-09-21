@@ -1,0 +1,11 @@
+body { font-family: system-ui, Arial, sans-serif; background:#f7f7f8; color:#222; padding:24px; }
+.container { max-width:720px; margin:0 auto; background:#fff; padding:20px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-radius:8px }
+.form { display:flex; gap:8px; margin-bottom:16px }
+.form input { flex:1; padding:8px 10px; border:1px solid #ddd; border-radius:4px }
+.form button { padding:8px 12px; border-radius:4px; border:none; background:#007bff; color:#fff }
+.form button[type="button"] { background:#6c757d }
+.list { list-style:none; padding:0; margin:0 }
+.list li { display:flex; justify-content:space-between; gap:12px; padding:8px 0; border-bottom:1px solid #eee }
+.delete { background:#e3342f; color:#fff; border:none; padding:6px 10px; border-radius:4px }
+.edit { background:#6c757d; color:#fff; border:none; padding:6px 10px; border-radius:4px; margin-right:8px }
+.empty { color:#666 }
