@@ -2,6 +2,16 @@ const { mount } = require('@vue/test-utils');
 const UserForm = require('../public/components/UserForm.vue').default;
 
 describe('UserForm SFC (mounted)', () => {
+  test('renders a label for each input field', () => {
+    const wrapper = mount(UserForm);
+    expect(wrapper.find('label[for="name"]').exists()).toBe(true);
+    expect(wrapper.find('label[for="email"]').exists()).toBe(true);
+    expect(wrapper.find('label[for="age"]').exists()).toBe(true);
+    expect(wrapper.find('label[for="name"]').text()).toBe('Name');
+    expect(wrapper.find('label[for="email"]').text()).toBe('Email');
+    expect(wrapper.find('label[for="age"]').text()).toBe('Age');
+  });
+
   test('submitting form emits trimmed payload', async () => {
     const wrapper = mount(UserForm);
     const nameInput = wrapper.find('input[placeholder="Name"]');
