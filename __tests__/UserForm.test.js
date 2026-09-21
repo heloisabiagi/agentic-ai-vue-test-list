@@ -6,16 +6,18 @@ describe('UserForm SFC (mounted)', () => {
     const wrapper = mount(UserForm);
     const nameInput = wrapper.find('input[placeholder="Name"]');
     const emailInput = wrapper.find('input[placeholder="Email"]');
+    const ageInput = wrapper.find('input[placeholder="Age"]');
     await nameInput.setValue(' Alice ');
     await emailInput.setValue(' a@b.com ');
+    await ageInput.setValue('31');
     await wrapper.find('form').trigger('submit.prevent');
     const emitted = wrapper.emitted('submit');
     expect(emitted).toBeTruthy();
-    expect(emitted[0][0]).toEqual({ id: null, name: 'Alice', email: 'a@b.com' });
+    expect(emitted[0][0]).toEqual({ id: null, name: 'Alice', email: 'a@b.com', age: 31 });
   });
 
   test('cancel button emits cancel when editing', async () => {
-    const wrapper = mount(UserForm, { props: { userToEdit: { id: 2, name: 'Bob', email: 'b@b.com' } } });
+    const wrapper = mount(UserForm, { props: { userToEdit: { id: 2, name: 'Bob', email: 'b@b.com', age: 42 } } });
     await wrapper.find('button[type="button"]').trigger('click');
     expect(wrapper.emitted('cancel')).toBeTruthy();
   });

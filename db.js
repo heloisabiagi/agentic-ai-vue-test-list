@@ -10,9 +10,18 @@ db.serialize(() => {
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
-      email TEXT NOT NULL UNIQUE
+      email TEXT NOT NULL UNIQUE,
+      age INTEGER
     )
   `);
+
+  db.all('PRAGMA table_info(users)', (err, rows) => {
+    if (err) return;
+    const hasAge = rows.some((row) => row.name === 'age');
+    if (!hasAge) {
+      db.run('ALTER TABLE users ADD COLUMN age INTEGER');
+    }
+  });
 });
 
 function run(sql, params = []) {

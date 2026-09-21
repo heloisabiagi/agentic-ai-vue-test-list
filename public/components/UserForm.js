@@ -6,6 +6,7 @@ const UserForm = {
     return {
       name: '',
       email: '',
+      age: '',
       editingId: null
     };
   },
@@ -17,10 +18,12 @@ const UserForm = {
           this.editingId = user.id;
           this.name = user.name;
           this.email = user.email;
+          this.age = user.age ?? '';
         } else {
           this.editingId = null;
           this.name = '';
           this.email = '';
+          this.age = '';
         }
       }
     }
@@ -29,16 +32,20 @@ const UserForm = {
     <form @submit.prevent="onSubmit" class="form">
       <input v-model="name" placeholder="Name" required />
       <input v-model="email" placeholder="Email" required />
+      <input v-model="age" type="number" min="0" placeholder="Age" required />
       <button type="submit">{{ editingId ? 'Save' : 'Add User' }}</button>
       <button type="button" v-if="editingId" @click="onCancel">Cancel</button>
     </form>
   `,
   methods: {
     onSubmit() {
+      const rawAge = this.age === undefined || this.age === null ? '' : String(this.age).trim();
+      const parsedAge = Number(rawAge);
       this.$emit('submit', {
         id: this.editingId,
         name: this.name.trim(),
-        email: this.email.trim()
+        email: this.email.trim(),
+        age: rawAge !== '' && Number.isFinite(parsedAge) ? parsedAge : null
       });
     },
     onCancel() {

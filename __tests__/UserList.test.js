@@ -7,9 +7,10 @@ describe('UserList SFC (mounted)', () => {
     expect(wrapper.text()).toContain('No users');
   });
 
-  test('emits edit and delete events when buttons clicked', async () => {
-    const users = [{ id: 1, name: 'A', email: 'a@a.com' }];
+  test('renders age and emits edit/delete events when buttons clicked', async () => {
+    const users = [{ id: 1, name: 'A', email: 'a@a.com', age: 27 }];
     const wrapper = mount(UserList, { props: { users } });
+    expect(wrapper.text()).toContain('Age: 27');
     await wrapper.find('button.edit').trigger('click');
     expect(wrapper.emitted('edit')).toBeTruthy();
     await wrapper.find('button.delete').trigger('click');

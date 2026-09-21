@@ -16,19 +16,21 @@ createApp({
       this.users = await res.json();
     },
     async handleSubmit(payload) {
-      const { id, name, email } = payload;
-      if (!name || !email) return;
+      const { id, name, email, age } = payload;
+      const rawAge = age === undefined || age === null ? '' : String(age).trim();
+      const parsedAge = Number(rawAge);
+      if (!name || !email || rawAge === '' || !Number.isFinite(parsedAge)) return;
       if (id) {
         await fetch(`/api/users/${id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email })
+          body: JSON.stringify({ name, email, age: parsedAge })
         });
       } else {
         await fetch('/api/users', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email })
+          body: JSON.stringify({ name, email, age: parsedAge })
         });
       }
       this.editingUser = null;

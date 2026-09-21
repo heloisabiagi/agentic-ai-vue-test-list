@@ -2,6 +2,7 @@
   <form @submit.prevent="onSubmit" class="form">
     <input v-model="name" placeholder="Name" required />
     <input v-model="email" placeholder="Email" required />
+    <input v-model="age" type="number" min="0" placeholder="Age" required />
     <button type="submit">{{ editingId ? 'Save' : 'Add User' }}</button>
     <button type="button" v-if="editingId" @click="onCancel">Cancel</button>
   </form>
@@ -11,7 +12,7 @@
 export default {
   props: { userToEdit: { type: Object, default: null } },
   data() {
-    return { name: '', email: '', editingId: null };
+    return { name: '', email: '', age: '', editingId: null };
   },
   watch: {
     userToEdit: {
@@ -21,17 +22,26 @@ export default {
           this.editingId = u.id;
           this.name = u.name;
           this.email = u.email;
+          this.age = u.age ?? '';
         } else {
           this.editingId = null;
           this.name = '';
           this.email = '';
+          this.age = '';
         }
       }
     }
   },
   methods: {
     onSubmit() {
-      this.$emit('submit', { id: this.editingId, name: this.name.trim(), email: this.email.trim() });
+      const rawAge = this.age === undefined || this.age === null ? '' : String(this.age).trim();
+      const parsedAge = Number(rawAge);
+      this.$emit('submit', {
+        id: this.editingId,
+        name: this.name.trim(),
+        email: this.email.trim(),
+        age: rawAge !== '' && Number.isFinite(parsedAge) ? parsedAge : null
+      });
     },
     onCancel() {
       this.$emit('cancel');
