@@ -42,3 +42,7 @@ This app is loosely based on this [Youtube video tutorial](https://www.youtube.c
 
 ## Log 2: Adding a new field, "Age", with Copilot
 - I've asked in the prompt for a new field, "Age", to be added to the interface and the API changes. It handled it well with a single prompt. 
+
+## Log 3: Adding Code Rabbit to the repository and testing PR checks
+- I've added Code Rabbit to the Github repository and created 2 PRs with simple changes. The first one was ok, the second one, in which I'm changing the name of the labels without updating the tests, was intended to be broken.
+- As expected, in the [second PR](https://github.com/heloisabiagi/agentic-ai-vue-test-list/pull/2), the CI tests failed, and the issue was also captured by Code Rabbit - which proactively fixed the issue.
