@@ -6,7 +6,7 @@ This repo is loosely based on this [YouTube video tutorial](https://www.youtube.
 
 You can also check my development log in the Status section.
 
-##Setup
+## Setup
 
 ```bash
 cd /path/to/copilot-vue-test-list
@@ -16,7 +16,7 @@ npm start
 
 Open http://localhost:3000 in your browser.
 
-##API endpoints
+## API endpoints
 
 - `GET /api/users` — list users
 - `GET /api/users/:id` — get a user
@@ -24,7 +24,7 @@ Open http://localhost:3000 in your browser.
 - `PUT /api/users/:id` — update a user
 - `DELETE /api/users/:id` — delete a user
 
-##Notes
+## Notes
 
 - The SQLite database file `database.sqlite` will be created automatically in the project root when the server runs.
 - The frontend is served from the `public/` folder.
