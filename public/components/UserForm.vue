@@ -1,10 +1,21 @@
 <template>
   <form @submit.prevent="onSubmit" class="form">
-    <input v-model="name" placeholder="Name" required />
-    <input v-model="email" placeholder="Email" required />
-    <input v-model="age" type="number" min="0" placeholder="Age" required />
-    <button type="submit">{{ editingId ? 'Save' : 'Add User' }}</button>
-    <button type="button" v-if="editingId" @click="onCancel">Cancel</button>
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input id="name" v-model="name" placeholder="Name" required />
+    </div>
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input id="email" v-model="email" placeholder="Email" required />
+    </div>
+    <div class="form-field">
+      <label for="age">Age</label>
+      <input id="age" v-model="age" type="number" min="0" placeholder="Age" required />
+    </div>
+    <div class="form-actions">
+      <button type="submit">{{ editingId ? 'Save' : 'Add User' }}</button>
+      <button type="button" v-if="editingId" @click="onCancel">Cancel</button>
+    </div>
   </form>
 </template>
 
