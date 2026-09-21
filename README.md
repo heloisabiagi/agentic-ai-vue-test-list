@@ -31,7 +31,7 @@ Open http://localhost:3000 in your browser.
 
 # Development status
 
-## Log 1: Scaffolding
+## Log 1: Scaffolding with Copilot
 
 This app is loosely based on this [Youtube video tutorial](https://www.youtube.com/watch?v=wlpBCazAY9Q&t=377s) and it consists of a very basic (for now) Users List. I'm working with VS Code and Copilot. Thoughts:
 - By using the Agent mode, I've simply asked Copilot to create a RESTful API with Express that saves users to a local SQLite database (as per the video tutorial). I asked it to make it a Vue.js app as it's my framework of preference.
@@ -40,5 +40,5 @@ This app is loosely based on this [Youtube video tutorial](https://www.youtube.c
 - I've done the a similar suggestion for the REST methods, separating them into individual files. This one was straightforward.
 - I've asked it to add some JEST unit tests (didn't give specific details) to both Vue components. As it suggested incompatible dependencies, it took it a while to make the tests run properly. 
 
-## Log 2: Adding a new field, "Age"
+## Log 2: Adding a new field, "Age", with Copilot
 - I've asked in the prompt for a new field, "Age", to be added to the interface and the API changes. It handled it well with a single prompt. 
