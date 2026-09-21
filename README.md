@@ -1,7 +1,5 @@
 # Express + Vue + SQLite (Users)
 
-[![CI](https://github.com/OWNER/REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/REPO/actions/workflows/ci.yml)
-
 This project is my experimentation creating a simple RESTful Users list with Vue.js, Unit tests and some pre-commit hooks/ . It demonstrates a minimal Express REST API with a Vue frontend that stores users in a local SQLite database.
 
 This repo is loosely based on this [YouTube video tutorial](https://www.youtube.com/watch?v=wlpBCazAY9Q&t=377s), but I'm adding my personal preferences.
